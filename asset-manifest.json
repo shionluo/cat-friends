@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/cat-friends/static/css/main.86a81645.chunk.css",
+    "main.js": "/cat-friends/static/js/main.ae393e65.chunk.js",
+    "main.js.map": "/cat-friends/static/js/main.ae393e65.chunk.js.map",
+    "runtime-main.js": "/cat-friends/static/js/runtime-main.c50bb959.js",
+    "runtime-main.js.map": "/cat-friends/static/js/runtime-main.c50bb959.js.map",
+    "static/css/2.eb45ad44.chunk.css": "/cat-friends/static/css/2.eb45ad44.chunk.css",
+    "static/js/2.d005b202.chunk.js": "/cat-friends/static/js/2.d005b202.chunk.js",
+    "static/js/2.d005b202.chunk.js.map": "/cat-friends/static/js/2.d005b202.chunk.js.map",
+    "index.html": "/cat-friends/index.html",
+    "precache-manifest.3bc821eb68497baf76c4fe48ee5616fe.js": "/cat-friends/precache-manifest.3bc821eb68497baf76c4fe48ee5616fe.js",
+    "service-worker.js": "/cat-friends/service-worker.js",
+    "static/css/2.eb45ad44.chunk.css.map": "/cat-friends/static/css/2.eb45ad44.chunk.css.map",
+    "static/css/main.86a81645.chunk.css.map": "/cat-friends/static/css/main.86a81645.chunk.css.map",
+    "static/media/App.css": "/cat-friends/static/media/SEGA.12a3db8b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c50bb959.js",
+    "static/css/2.eb45ad44.chunk.css",
+    "static/js/2.d005b202.chunk.js",
+    "static/css/main.86a81645.chunk.css",
+    "static/js/main.ae393e65.chunk.js"
+  ]
+}
