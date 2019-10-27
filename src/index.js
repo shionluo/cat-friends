@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
-import { createLogger } from "redux-logger";
+// import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 
 import "tachyons";
@@ -20,11 +20,11 @@ import "./index.css";
 
 //----------------------------------------------------//
 
-const logger = createLogger();
+// const logger = createLogger();
 const rootReducer = combineReducers({ searchCats, requestCats });
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunkMiddleware, logger)
+  applyMiddleware(thunkMiddleware)
 );
 
 ReactDOM.render(

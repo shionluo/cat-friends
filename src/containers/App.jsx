@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { setSearchField, requestCats } from "../action";
 
 //-- Components --//
+import Header from "../components/Header";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
@@ -47,7 +48,7 @@ const App = ({
     <h1 className="tc">Loading ...</h1>
   ) : (
     <div className="tc">
-      <h1 className="f1">Cat Friends</h1>
+      <Header />
       <SearchBox onSearchChange={onSearchChange} />
       <Scroll>
         <ErrorBoundry>
