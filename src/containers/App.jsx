@@ -1,4 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+
+import { connect } from "react-redux";
+
+//-- Actions --//
+import { setSearchField, requestCats } from "../action";
 
 //-- Components --//
 import CardList from "../components/CardList";
@@ -11,25 +16,36 @@ import "./App.css";
 
 //----------------------------------------------------//
 
-const App = () => {
-  const [cats, setCats] = useState([]);
-  const [searchField, setSearchField] = useState("");
+const mapStatetoProps = state => ({
+  searchField: state.searchCats.searchField,
+  cats: state.requestCats.cats,
+  isPending: state.requestCats.isPending,
+  error: state.requestCats.error
+});
 
+const mapDispatchToProps = dispatch => ({
+  onSearchChange: e => dispatch(setSearchField(e.target.value)),
+  onRequestCats: () => dispatch(requestCats())
+});
+
+const App = ({
+  searchField,
+  cats,
+  isPending,
+  onSearchChange,
+  onRequestCats
+}) => {
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(users => setCats(users));
-  }, []);
-
-  const onSearchChange = e => {
-    setSearchField(e.target.value);
-  };
+    onRequestCats();
+  }, [onRequestCats]);
 
   const filterCats = cats.filter(cat =>
     cat.name.toLowerCase().includes(searchField.toLowerCase())
   );
 
-  return cats.length ? (
+  return isPending ? (
+    <h1 className="tc">Loading ...</h1>
+  ) : (
     <div className="tc">
       <h1 className="f1">Cat Friends</h1>
       <SearchBox onSearchChange={onSearchChange} />
@@ -39,9 +55,10 @@ const App = () => {
         </ErrorBoundry>
       </Scroll>
     </div>
-  ) : (
-    <h1 className="tc">Loading ...</h1>
   );
 };
 
-export default App;
+export default connect(
+  mapStatetoProps,
+  mapDispatchToProps
+)(App);
