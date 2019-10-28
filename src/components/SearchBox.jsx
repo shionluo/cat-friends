@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
 const SearchBox = ({ onSearchChange }) => (
   <div className="pa2">
     <input
+      aria-label="Search Cats"
       className="pa3 ba b--green bg-lightest-blue"
       type="text"
       placeholder="Search"
