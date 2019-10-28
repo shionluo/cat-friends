@@ -7,11 +7,14 @@ import {
 } from "./constants";
 
 //----------------------------------------------------//
+//----------------------------------------------------//
 
 export const setSearchField = text => ({
   type: CHANGE_SEARCH_FIELD,
   payload: text
 });
+
+//----------------------------------------------------//
 
 export const requestCats = () => dispatch => {
   dispatch({ type: REQUEST_CATS_PENDING });

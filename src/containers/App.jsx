@@ -1,9 +1,4 @@
-import React, { useEffect } from "react";
-
-import { connect } from "react-redux";
-
-//-- Actions --//
-import { setSearchField, requestCats } from "../action";
+import React from "react";
 
 //-- Components --//
 import Header from "../components/Header";
@@ -16,50 +11,20 @@ import ErrorBoundry from "../components/ErrorBoundry";
 import "./App.css";
 
 //----------------------------------------------------//
+//----------------------------------------------------//
 
-const mapStatetoProps = state => ({
-  searchField: state.searchCats.searchField,
-  cats: state.requestCats.cats,
-  isPending: state.requestCats.isPending,
-  error: state.requestCats.error
-});
-
-const mapDispatchToProps = dispatch => ({
-  onSearchChange: e => dispatch(setSearchField(e.target.value)),
-  onRequestCats: () => dispatch(requestCats())
-});
-
-const App = ({
-  searchField,
-  cats,
-  isPending,
-  onSearchChange,
-  onRequestCats
-}) => {
-  useEffect(() => {
-    onRequestCats();
-  }, [onRequestCats]);
-
-  const filterCats = cats.filter(cat =>
-    cat.name.toLowerCase().includes(searchField.toLowerCase())
-  );
-
-  return isPending ? (
-    <h1 className="tc">Loading ...</h1>
-  ) : (
+const App = () => {
+  return (
     <div className="tc">
       <Header />
-      <SearchBox onSearchChange={onSearchChange} />
+      <SearchBox />
       <Scroll>
         <ErrorBoundry>
-          <CardList cats={filterCats} />
+          <CardList />
         </ErrorBoundry>
       </Scroll>
     </div>
   );
 };
 
-export default connect(
-  mapStatetoProps,
-  mapDispatchToProps
-)(App);
+export default App;

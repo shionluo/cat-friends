@@ -1,5 +1,17 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
+//-- Actions --//
+import { setSearchField } from "../action";
+
+//----------------------------------------------------//
+//----------------------------------------------------//
+
+const mapDispatchToProps = dispatch => ({
+  onSearchChange: e => dispatch(setSearchField(e.target.value))
+});
+
 const SearchBox = ({ onSearchChange }) => (
   <div className="pa2">
     <input
@@ -11,4 +23,7 @@ const SearchBox = ({ onSearchChange }) => (
   </div>
 );
 
-export default SearchBox;
+export default connect(
+  null,
+  mapDispatchToProps
+)(SearchBox);
