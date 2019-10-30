@@ -4,16 +4,25 @@ import {
   REQUEST_CATS_PENDING,
   REQUEST_CATS_SUCCESS,
   REQUEST_CATS_FAILED
-} from "./constants";
+} from "../constants";
+
+import { ActionTypes } from "../types/action";
 
 //----------------------------------------------------//
 //----------------------------------------------------//
 
-const initialSearchField = {
+interface searchField {
+  searchField: string;
+}
+
+const initialSearchField: searchField = {
   searchField: ""
 };
 
-export const searchCats = (state = initialSearchField, action = {}) => {
+export const searchCats = (
+  state = initialSearchField,
+  action: ActionTypes
+): searchField => {
   switch (action.type) {
     case CHANGE_SEARCH_FIELD:
       return {
@@ -27,13 +36,19 @@ export const searchCats = (state = initialSearchField, action = {}) => {
 
 //----------------------------------------------------//
 
-const initialCats = {
+interface cats {
+  cats: [];
+  isPending: boolean;
+  error: string;
+}
+
+const initialCats: cats = {
   cats: [],
   isPending: false,
   error: ""
 };
 
-export const requestCats = (state = initialCats, action = {}) => {
+export const requestCats = (state = initialCats, action: ActionTypes) => {
   switch (action.type) {
     case REQUEST_CATS_PENDING:
       return {

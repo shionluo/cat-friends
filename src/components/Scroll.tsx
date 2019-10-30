@@ -3,7 +3,11 @@ import React from "react";
 //----------------------------------------------------//
 //----------------------------------------------------//
 
-const Scroll = props => (
+type Props = {
+  children?: JSX.Element
+}
+
+const Scroll = (props: Props) => (
   <div
     style={{ overflow: "scroll", border: "5px solid black", height: "500px" }}
   >

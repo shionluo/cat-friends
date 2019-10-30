@@ -3,12 +3,18 @@ import React from "react";
 //----------------------------------------------------//
 //----------------------------------------------------//
 
-class ErrorBoundry extends React.Component {
+interface IAppProps {}
+
+interface IAppState {
+  hasError: boolean;
+}
+
+class ErrorBoundry extends React.Component<IAppProps, IAppState> {
   state = {
     hasError: false
   };
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error: any, info: any) {
     this.setState({ hasError: true });
   }
 

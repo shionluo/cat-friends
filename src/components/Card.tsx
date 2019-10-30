@@ -3,7 +3,13 @@ import React from "react";
 //----------------------------------------------------//
 //----------------------------------------------------//
 
-const Card = ({ id, name, email }) => (
+interface Props {
+  id: number;
+  name: string;
+  email: string;
+}
+
+const Card: React.FC<Props> = ({ id, name, email }) => (
   <div className="tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
     <img src={`https://robohash.org/${id}?set=set4&size=250x250`} alt="cat" />
     <div>

@@ -3,25 +3,41 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 //-- Actions --//
-import { requestCats } from "../action";
+import { requestCats } from "../actions/action";
 
 //-- Components --//
 import Card from "./Card";
 
+//-- Type --//
+import { AppState } from "../store/configureStore";
+import { ThunkDispatch } from "redux-thunk";
+
 //----------------------------------------------------//
 //----------------------------------------------------//
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: AppState) => ({
   cats: state.requestCats.cats,
   isPending: state.requestCats.isPending,
   searchField: state.searchCats.searchField
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => ({
   requestCats: () => dispatch(requestCats())
 });
 
-const CardList = ({ cats, isPending, searchField, requestCats }) => {
+interface Props {
+  cats: any[]
+  isPending: boolean;
+  searchField: string;
+  requestCats: () => void;
+}
+
+const CardList: React.SFC<Props> = ({
+  cats,
+  isPending,
+  searchField,
+  requestCats
+}) => {
   useEffect(() => {
     requestCats();
   }, [requestCats]);

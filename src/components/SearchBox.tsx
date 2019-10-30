@@ -3,16 +3,23 @@ import React from "react";
 import { connect } from "react-redux";
 
 //-- Actions --//
-import { setSearchField } from "../action";
+import { setSearchField } from "../actions/action";
+
+//-- Type --//
+import { Dispatch } from "redux";
 
 //----------------------------------------------------//
 //----------------------------------------------------//
 
-const mapDispatchToProps = dispatch => ({
-  onSearchChange: e => dispatch(setSearchField(e.target.value))
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  onSearchChange: (e: any) => dispatch(setSearchField(e.target.value))
 });
 
-const SearchBox = ({ onSearchChange }) => (
+interface Props {
+  onSearchChange: any;
+}
+
+const SearchBox: React.SFC<Props> = ({ onSearchChange }) => (
   <div className="pa2">
     <input
       aria-label="Search Cats"
