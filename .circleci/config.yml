@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  ding:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "A first hello"
+  dang:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "Double trouble"
+  workflows:
+    version: 2
+    ding_dang:
+      jobs:
+        - ding
+        - dang
